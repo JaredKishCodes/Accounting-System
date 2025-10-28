@@ -1,0 +1,60 @@
+# Build results
+bin/
+obj/
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio cache and temp files
+.vs/
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build logs
+*.log
+
+# Auto-generated files
+Generated\ Files/
+
+# Backup & temporary files
+*.tmp
+*.bak
+*.old
+*.cache
+*.swp
+*.pidb
+*.pdb
+
+# Publish folders
+publish/
+*.Publish.xml
+
+# NuGet packages
+*.nupkg
+# Uncomment if you have NuGet packages inside your repo
+# packages/
+
+# Ignore user-specific project settings
+*.csproj.user
+
+# Resharper / Rider files
+_ReSharper*/
+*.DotSettings.user
+
+# Test results
+TestResults/
+*.VisualState.xml
+
+# Windows image cache files
+Thumbs.db
+ehthumbs.db
+
+# OS-generated files
+.DS_Store
+desktop.ini
+
+# Tooling
+*.dbmdl
+*.jfm
