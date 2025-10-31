@@ -14,6 +14,12 @@ namespace AccountingSystem.Repository
             _context = context;
         }
 
+        public async Task CreateTransactionAsync(Transaction transaction)
+        {
+           var result =  await _context.Transactions.AddAsync(transaction);
+            await _context.SaveChangesAsync();
+        }
+
         public async Task<IEnumerable<Transaction>> GetTransactionsAsync()
         {
             return await _context.Transactions.ToListAsync();
