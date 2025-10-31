@@ -454,7 +454,8 @@
 
                        
 
-                            <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Height="200" Width="480">
+                            <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Height="250
+                                        " Width="480">
                                 <Label   FontWeight="Bold" FontSize="10" Content="Date(YYYY,MM,DD)" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Left"/>
                                 <TextBox   Width="475" Height="25"   HorizontalAlignment="Left"/>
 
@@ -462,14 +463,17 @@
                             <TextBox   Width="475" Height="25"   HorizontalAlignment="Left"/>
                                
 
-                                <Label   FontWeight="Bold" FontSize="10" Content="Debit Amount" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Left"/>
+                                <Label   FontWeight="Bold" FontSize="10" Content="Debit Account" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Left"/>
                             <TextBox   Width="475" Height="25"   HorizontalAlignment="Left"/>
 
-                                <Label   FontWeight="Bold" FontSize="10" Content="Credit Amount" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Left"/>
+                                <Label   FontWeight="Bold" FontSize="10" Content="Credit Account" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Left"/>
+                            <TextBox   Width="475" Height="25"   HorizontalAlignment="Left"/>
+
+                            <Label   FontWeight="Bold" FontSize="10" Content="Amount" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Left"/>
                             <TextBox   Width="475" Height="25"   HorizontalAlignment="Left"/>
 
 
-                            
+
 
                         </StackPanel>
                         <Button Grid.Row="2" Content="Submit" Background="#93B1B5" Foreground="White" FontSize="15" FontWeight="Bold" Width="475" Height="30" Margin="0,0,10,0">

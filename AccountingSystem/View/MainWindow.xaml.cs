@@ -9,6 +9,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using AccountingSystem.View;
+using AccountingSystem.ViewModel;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace AccountingSystem
 {
@@ -20,6 +22,7 @@ namespace AccountingSystem
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = App.ServiceProvider.GetRequiredService<TransactionViewModel>();
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
