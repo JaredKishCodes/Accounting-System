@@ -8,6 +8,7 @@ using System.Windows;
 using AccountingSystem.Data;
 using AccountingSystem.Interfaces;
 using AccountingSystem.Repository;
+using AccountingSystem.ViewModel;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -30,6 +31,8 @@ namespace AccountingSystem
 
             // Register repositories
             services.AddScoped<ITransactionRepository, TransactionRepository>();
+            services.AddTransient<TransactionViewModel>();
+
 
             // Register your ViewModels or other services here
             // services.AddTransient<MainViewModel>();

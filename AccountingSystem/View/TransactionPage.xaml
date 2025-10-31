@@ -110,7 +110,7 @@
                                                 <Border.Effect>
                                                     <DropShadowEffect Color="Transparent" BlurRadius="0" ShadowDepth="0"/>
                                                 </Border.Effect>
-                                            <TextBlock Text="{TemplateBinding Content}"
+                                                <TextBlock Text="{TemplateBinding Content}"
                                                        Foreground="{TemplateBinding Foreground}"
                                                        FontWeight="{TemplateBinding FontWeight}"
                                                        FontSize="{TemplateBinding FontSize}"
@@ -426,7 +426,9 @@
                   Background="#e2e3ea"
                   
                   >
-                <Border Width="500" Height="400" CornerRadius="7"  Background="White">
+                <Border Height="400" 
+                        CornerRadius="7"
+                        Background="White" Margin="43,40,43,40">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="70"/>
@@ -436,80 +438,47 @@
 
                         <TextBlock Text="Transaction"
                                    HorizontalAlignment="Center"
-                                   VerticalAlignment="Top"
-                                   Margin="0,20,0,0"
+                                   Margin="0,20,0,29"
                                    FontFamily="Arial"
                                    FontSize="18"
                                    FontWeight="Bold"
                                    Foreground="#0B2E33"/>
 
 
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
 
-                        <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Height="200" Width="480">
-                            <Label   FontWeight="Bold" FontSize="10" Content="Date(YYYY,MM,DD)" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Left"/>
-                            <TextBox   Width="475" Height="25"   HorizontalAlignment="Left"/>
-
-                            <Label   FontWeight="Bold" FontSize="10" Content="Description" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Left"/>
-                            <TextBox   Width="475" Height="25"   HorizontalAlignment="Left"/>
-
-
-                            <Label   FontWeight="Bold" FontSize="10" Content="Debit Amount" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Left"/>
-                            <TextBox   Width="475" Height="25"   HorizontalAlignment="Left"/>
-
-                            <Label   FontWeight="Bold" FontSize="10" Content="Credit Amount" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Left"/>
-                            <TextBox   Width="475" Height="25"   HorizontalAlignment="Left"/>
+                            <Label Grid.Row="1" Content="Search" Margin="56,8,-16,-8" />
+                            <Border
+                               BorderThickness="1"
+                                BorderBrush="Black"
+                                Background="#F1F5F9"
+                                Padding="10"
+                                Width="300"
+                                HorizontalAlignment="Left" Margin="105,10,0,-2" Grid.Row="1"
+                                />
+                        </Grid>
 
 
+                        <DataGrid Grid.Row="1
+                                  " ItemsSource="{Binding Transactions}" 
+                                  AutoGenerateColumns="False"
+                                  HeadersVisibility="Column"
+                                  Margin="10,10,10,29"
+                                  IsReadOnly="True"
+                                  CanUserAddRows="False" Grid.RowSpan="2">
 
-
-                        </StackPanel>
-                        <Button Grid.Row="2" Content="Submit" Background="#93B1B5" Foreground="White" FontSize="15" FontWeight="Bold" Width="475" Height="30" Margin="0,0,10,0" Click="SubmitButton_Click">
-                            <Button.Style>
-                                <Style TargetType="Button">
-                                    <Setter Property="Template">
-                                        <Setter.Value>
-                                            <ControlTemplate TargetType="Button">
-                                                <Border x:Name="SubmitBorder"
-                                                        Background="{TemplateBinding Background}"
-                                                        CornerRadius="6"
-                                                        Width="{TemplateBinding Width}"
-                                                        Height="{TemplateBinding Height}">
-                                                    <Border.Effect>
-                                                        <DropShadowEffect Color="Transparent" BlurRadius="0" ShadowDepth="0"/>
-                                                    </Border.Effect>
-                                                    <TextBlock Text="{TemplateBinding Content}"
-                                                               Foreground="{TemplateBinding Foreground}"
-                                                               FontWeight="{TemplateBinding FontWeight}"
-                                                               FontSize="{TemplateBinding FontSize}"
-                                                               HorizontalAlignment="Center"
-                                                               VerticalAlignment="Center"/>
-                                                </Border>
-                                                <ControlTemplate.Triggers>
-                                                    <Trigger Property="IsMouseOver" Value="True">
-                                                        <Setter Property="Background" Value="#A8C4C9"/>
-                                                        <Setter Property="Foreground" Value="#FFFFFF"/>
-                                                        <Setter TargetName="SubmitBorder" Property="Effect">
-                                                            <Setter.Value>
-                                                                <DropShadowEffect Color="#93B1B5" BlurRadius="20" ShadowDepth="4" Opacity="0.7"/>
-                                                            </Setter.Value>
-                                                        </Setter>
-                                                    </Trigger>
-                                                    <Trigger Property="IsPressed" Value="True">
-                                                        <Setter Property="Background" Value="#7A9DA3"/>
-                                                        <Setter Property="Foreground" Value="#F0F0F0"/>
-                                                        <Setter TargetName="SubmitBorder" Property="Effect">
-                                                            <Setter.Value>
-                                                                <DropShadowEffect Color="#93B1B5" BlurRadius="10" ShadowDepth="2" Opacity="0.9"/>
-                                                            </Setter.Value>
-                                                        </Setter>
-                                                    </Trigger>
-                                                </ControlTemplate.Triggers>
-                                            </ControlTemplate>
-                                        </Setter.Value>
-                                    </Setter>
-                                </Style>
-                            </Button.Style>
-                        </Button>
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Width="100" Header="Date" Binding="{Binding Date}" />
+                                <DataGridTextColumn  Width="150" Header="Description" Binding="{Binding AccountName}" />
+                                <DataGridTextColumn Width="150" Header="Debit Account" Binding="{Binding Description}" />
+                                <DataGridTextColumn  Width="150" Header="Credit Account" Binding="{Binding Amount, StringFormat=C}"/>
+                                <DataGridTextColumn  Width="150" Header="Amount" Binding="{Binding Amount, StringFormat=C}" />
+                            </DataGrid.Columns>
+                        </DataGrid>
 
 
 
