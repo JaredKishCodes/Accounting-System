@@ -19,7 +19,7 @@ namespace AccountingSystem.Data.Configs
             builder.Property(x => x.Description).IsRequired().HasMaxLength(50);
             builder.Property(x => x.CreditAccount).IsRequired();
             builder.Property(x => x.DebitAccount).IsRequired();
-            builder.Property(x => x.Ammount).IsRequired().HasPrecision(18,2);
+            builder.Property(x => x.Amount).IsRequired().HasPrecision(18,2);
 
         }
     }

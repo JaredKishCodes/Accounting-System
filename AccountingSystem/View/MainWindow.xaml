@@ -454,28 +454,27 @@
 
                        
 
-                            <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Height="250
-                                        " Width="480">
-                                <Label   FontWeight="Bold" FontSize="10" Content="Date(YYYY,MM,DD)" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Left"/>
-                            <TextBox Text="{Binding NewTransaction.Date, UpdateSourceTrigger=PropertyChanged}" Width="475" Height="25"   HorizontalAlignment="Left"/>
+                            <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Height="280" Width="480">
+                                <Label FontWeight="Bold" FontSize="10" Content="Date" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Left" Margin="0,5,0,2"/>
+                                <DatePicker SelectedDate="{Binding SelectedDate, UpdateSourceTrigger=PropertyChanged}" Width="475" Height="30" HorizontalAlignment="Left"/>
 
-                                <Label   FontWeight="Bold" FontSize="10" Content="Description" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Left"/>
-                            <TextBox Text="{Binding NewTransaction.Description, UpdateSourceTrigger=PropertyChanged}"  Width="475" Height="25"   HorizontalAlignment="Left"/>
+                                <Label FontWeight="Bold" FontSize="10" Content="Description" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Left" Margin="0,5,0,2"/>
+                                <TextBox Text="{Binding NewTransaction.Description, UpdateSourceTrigger=PropertyChanged}" Width="475" Height="25" HorizontalAlignment="Left"/>
                                
-                                <Label   FontWeight="Bold" FontSize="10" Content="Debit Account" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Left"/>
-                            <TextBox Text="{Binding NewTransaction.DebitAccount, UpdateSourceTrigger=PropertyChanged}"  Width="475" Height="25"   HorizontalAlignment="Left"/>
+                                <Label FontWeight="Bold" FontSize="10" Content="Debit Account" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Left" Margin="0,5,0,2"/>
+                                <ComboBox ItemsSource="{Binding DebitAccountOptions}" SelectedItem="{Binding NewTransaction.DebitAccount, UpdateSourceTrigger=PropertyChanged}" Width="475" Height="30" HorizontalAlignment="Left"/>
 
-                                <Label   FontWeight="Bold" FontSize="10" Content="Credit Account" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Left"/>
-                            <TextBox Text="{Binding NewTransaction.CreditAccount, UpdateSourceTrigger=PropertyChanged}"  Width="475" Height="25"   HorizontalAlignment="Left"/>
+                                <Label FontWeight="Bold" FontSize="10" Content="Credit Account" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Left" Margin="0,5,0,2"/>
+                                <ComboBox ItemsSource="{Binding CreditAccountOptions}" SelectedItem="{Binding NewTransaction.CreditAccount, UpdateSourceTrigger=PropertyChanged}" Width="475" Height="30" HorizontalAlignment="Left"/>
 
-                            <Label   FontWeight="Bold" FontSize="10" Content="Amount" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Left"/>
-                            <TextBox Text="{Binding NewTransaction.Amount, UpdateSourceTrigger=PropertyChanged}"  Width="475" Height="25"   HorizontalAlignment="Left"/>
+                                <Label FontWeight="Bold" FontSize="10" Content="Amount" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Left" Margin="0,5,0,2"/>
+                                <TextBox Text="{Binding AmountText, UpdateSourceTrigger=PropertyChanged}" Width="475" Height="25" HorizontalAlignment="Left"/>
 
 
 
 
                         </StackPanel>
-                        <Button Command="{Binding CreateTransactionsAsyncCommand}" CommandParameter="{Binding NewTransaction}" Grid.Row="2" Content="Submit" Background="#93B1B5" Foreground="White" FontSize="15" FontWeight="Bold" Width="475" Height="30" Margin="0,0,10,0">
+                        <Button Command="{Binding CreateTransactionsAsyncCommand}" CommandParameter="{Binding NewTransaction}" Grid.Row="2" Content="Submit" Background="#93B1B5" Foreground="White" FontSize="15" FontWeight="Bold" Width="475" Height="30" Margin="0,0,10,0" Cursor="Hand">
                             <Button.Style>
                                 <Style TargetType="Button">
                                     <Setter Property="Template">

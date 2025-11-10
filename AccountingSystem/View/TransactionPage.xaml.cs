@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using AccountingSystem.ViewModel;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace AccountingSystem.View
 {
@@ -23,6 +25,12 @@ namespace AccountingSystem.View
         public TransactionPage()
         {
             InitializeComponent();
+            DataContext = App.ServiceProvider.GetRequiredService<TransactionViewModel>();
+            // Load transactions when page loads
+            if (DataContext is TransactionViewModel viewModel)
+            {
+                Task.Run(async () => await viewModel.LoadTransactionsAsync());
+            }
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
@@ -44,16 +52,10 @@ namespace AccountingSystem.View
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             // Navigate back to MainWindow
-            var mainWindow = new MainWindow();
             var currentWindow = Window.GetWindow(this);
+            var mainWindow = new MainWindow();
             mainWindow.Show();
             currentWindow?.Close();
-        }
-
-        private void SubmitButton_Click(object sender, RoutedEventArgs e)
-        {
-            // TODO: Implement transaction submission logic
-            MessageBox.Show("Transaction submitted successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 }

@@ -1,6 +1,5 @@
-﻿
-
-using AccountingSystem.Models;
+﻿using AccountingSystem.Models;
+using AccountingSystem.Data.Configs;
 using Microsoft.EntityFrameworkCore;
 
 namespace AccountingSystem.Data
@@ -19,6 +18,12 @@ namespace AccountingSystem.Data
                 // Example: using a local SQL Server database
                 optionsBuilder.UseSqlServer(@"Server=DESKTOP-Q4HRE44;Database=AccountingDB;Trusted_Connection=True;TrustServerCertificate=True;");
             }
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.ApplyConfiguration(new TransactionConfiguration());
         }
     }
 }

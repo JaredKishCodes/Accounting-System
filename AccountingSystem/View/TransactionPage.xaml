@@ -472,11 +472,11 @@
                                   CanUserAddRows="False" Grid.RowSpan="2">
 
                             <DataGrid.Columns>
-                                <DataGridTextColumn Width="100" Header="Date" Binding="{Binding Date}" />
-                                <DataGridTextColumn  Width="150" Header="Description" Binding="{Binding AccountName}" />
-                                <DataGridTextColumn Width="150" Header="Debit Account" Binding="{Binding Description}" />
-                                <DataGridTextColumn  Width="150" Header="Credit Account" Binding="{Binding Amount, StringFormat=C}"/>
-                                <DataGridTextColumn  Width="150" Header="Amount" Binding="{Binding Amount, StringFormat=C}" />
+                                <DataGridTextColumn Width="120" Header="Date" Binding="{Binding Date, StringFormat='{}{0:yyyy-MM-dd}'}" />
+                                <DataGridTextColumn Width="200" Header="Description" Binding="{Binding Description}" />
+                                <DataGridTextColumn Width="150" Header="Debit Account" Binding="{Binding DebitAccount}" />
+                                <DataGridTextColumn Width="150" Header="Credit Account" Binding="{Binding CreditAccount}" />
+                                <DataGridTextColumn Width="120" Header="Amount" Binding="{Binding Amount, StringFormat=C}" />
                             </DataGrid.Columns>
                         </DataGrid>
 

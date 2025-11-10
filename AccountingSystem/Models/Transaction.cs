@@ -11,6 +11,6 @@ namespace AccountingSystem.Models
         public string? Description { get; set; }
         public DebitAccount DebitAccount { get; set; }
         public CreditAccount CreditAccount { get; set; }
-        public decimal Ammount { get; set; }
+        public decimal Amount { get; set; }
     }
 }

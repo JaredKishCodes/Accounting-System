@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -38,14 +39,18 @@ namespace AccountingSystem
 
         private void NewTransactionButton_Click(object sender, RoutedEventArgs e)
         {
-            // Navigate to TransactionPage
-            var transactionPage = new TransactionPage();
-            this.Content = transactionPage;
+            // Reset form if we're on MainWindow (form is already visible)
+            if (DataContext is TransactionViewModel viewModel)
+            {
+                viewModel.NewTransaction = new Models.Transaction();
+                viewModel.SelectedDate = DateTime.Today;
+                viewModel.AmountText = string.Empty;
+            }
         }
 
         private void TransactionButton_Click(object sender, RoutedEventArgs e)
         {
-            // Navigate to TransactionPage
+            // Navigate to TransactionPage to view transactions
             var transactionPage = new TransactionPage();
             this.Content = transactionPage;
         }
